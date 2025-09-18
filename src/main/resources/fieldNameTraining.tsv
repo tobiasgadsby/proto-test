@@ -1,0 +1,50 @@
+user      O
+first     FIRST_NAME
+name      FIRST_NAME
+
+primary   O
+last      LAST_NAME
+name      LAST_NAME
+
+email     EMAIL
+address   EMAIL
+
+street    ADDRESS
+address   ADDRESS
+
+billing   O
+city      CITY
+
+zip       POSTAL_CODE
+code      POSTAL_CODE
+
+home      O
+work    O
+phone     PHONE_NUMBER
+number    PHONE_NUMBER
+
+full    EMPLOYMENT_TYPE
+time    EMPLOYMENT_TYPE
+
+part   EMPLOYMENT_TYPE
+time    EMPLOYMENT_TYPE
+
+contract    EMPLOYMENT_TYPE
+
+intern  EMPLOYMENT_TYPE
+
+company O
+id  IDENTIFIER
+
+login   TIMESTAMP
+timestamp  TIMESTAMP
+
+second SECONDS
+
+nano   NANOSECONDS
+
+slack   USER_TAG
+handle  USER_TAG
+
+skype   USER_TAG
+id      USER_TAG

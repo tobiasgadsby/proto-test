@@ -1,0 +1,96 @@
+// File: src/main/proto/comprehensive_schema.proto
+syntax = "proto3";
+
+package com.example.testing;
+
+// Importing the common message(s) from the other file.
+import "common.proto";
+
+// --- Java-specific options ---
+option java_package = "com.example.testing.protos.main";
+option java_multiple_files = true;
+
+// Top-level enum for employment types that can be reused by other messages.
+enum EmploymentType {
+  EMPLOYMENT_TYPE_UNSPECIFIED = 0; // The zero value should always be the default.
+  FULL_TIME = 1;
+  PART_TIME = 2;
+  CONTRACT = 3;
+  INTERN = 4;
+}
+
+// Represents a company or organization. Used in the repeated field below.
+message Company {
+  UUID company_id = 1;           // An example of using an imported message.
+  string name = 2;
+  string headquarters_address = 3;
+  uint32 total_employees = 4;
+}
+
+// The primary, complex message designed to test many features.
+message UserProfile {
+
+  // --- Nested Message Definitions ---
+  // A message defined inside another message is a "nested type".
+
+  // Nested enum for the status of the profile.
+  enum ProfileStatus {
+    STATUS_UNSPECIFIED = 0;
+    ACTIVE = 1;
+    INACTIVE = 2;
+    PENDING_VERIFICATION = 3;
+    SUSPENDED = 4;
+  }
+
+  // Nested message for geographic location data.
+  message Location {
+    double latitude = 1;
+    float longitude = 2;
+    string city = 3;
+    string country_code = 4;
+  }
+
+  // Nested message for user-configurable settings.
+  message Preferences {
+    bool dark_mode_enabled = 1;
+    string language_code = 2;      // e.g., "en-US"
+    repeated string notification_topics = 3; // A list of simple strings.
+  }
+
+
+  // --- Fields of the UserProfile message ---
+
+  // --- Scalar Types ---
+  UUID user_id = 1;                // Imported message type.
+  string username = 2;             // Standard string.
+  string email = 3;
+  bool is_verified = 4;            // Boolean.
+  bytes profile_picture = 5;       // For binary data like an image file.
+  int64 created_timestamp_ms = 6;  // Unix timestamp (milliseconds). Use long in Java.
+  int32 age = 7;                   // Standard 32-bit integer.
+
+  // --- Enum Type ---
+  ProfileStatus status = 8;        // Using the nested enum defined above.
+
+  // --- Nested Message Types ---
+  Location last_known_location = 9; // Using the nested message.
+  Preferences user_preferences = 10; // Using another nested message.
+
+  // --- Repeated (List) Fields ---
+  // A list of previous companies the user worked at.
+  repeated Company employment_history = 11; // A list of complex (message) types.
+  repeated uint32 login_timestamps = 12 [packed = true]; // A list of primitive types. 'packed=true' is default/recommended.
+
+  // --- Map Field ---
+  // A map for storing arbitrary key-value metadata.
+  map<string, string> metadata = 13;
+
+  // --- Oneof Field ---
+  // A 'oneof' ensures that only one of the fields within it can be set at a time.
+  // Setting one field automatically clears the others.
+  oneof contact_method {
+    string phone_number = 14;
+    string slack_handle = 15;
+    string skype_id = 16;
+  }
+}

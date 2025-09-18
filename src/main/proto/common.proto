@@ -1,0 +1,15 @@
+// File: src/main/proto/common.proto
+syntax = "proto3";
+
+package com.example.testing;
+
+// --- Java-specific options ---
+option java_package = "com.example.testing.protos.common";
+option java_multiple_files = true;
+
+// A universally unique identifier, often used for primary keys.
+// This is a good candidate for a common, reusable message.
+message UUID {
+  // The string representation of the UUID, e.g., "123e4567-e89b-12d3-a456-426614174000".
+  string value = 1;
+}
