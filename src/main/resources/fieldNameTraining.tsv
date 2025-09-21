@@ -1,3 +1,7 @@
+value   O
+is  0
+
+
 user      O
 first     FIRST_NAME
 name      FIRST_NAME
@@ -6,11 +10,18 @@ primary   O
 last      LAST_NAME
 name      LAST_NAME
 
+name    NAME
+
+full    NAME
+name    NAME
+
 email     EMAIL
 address   EMAIL
 
 street    ADDRESS
 address   ADDRESS
+
+address ADDRESS
 
 billing   O
 city      CITY
@@ -33,18 +44,34 @@ contract    EMPLOYMENT_TYPE
 
 intern  EMPLOYMENT_TYPE
 
-company O
+company IDENTIFIER
 id  IDENTIFIER
 
-login   TIMESTAMP
-timestamp  TIMESTAMP
+user IDENTIFIER
+id  IDENTIFIER
+
+login   TIME
+
+timestamp  TIME
+
+ms  TIME
+
+time    TIME
 
 second SECONDS
 
 nano   NANOSECONDS
 
-slack   USER_TAG
-handle  USER_TAG
+slack   USER_NAME
+handle  USER_NAME
 
-skype   USER_TAG
-id      USER_TAG
+skype   USER_NAME
+id      USER_NAME
+
+user    USER_NAME
+name    USER_NAME
+
+username    USER_NAME
+
+total   PEOPLE_COUNT
+employees   PEOPLE_COUNT

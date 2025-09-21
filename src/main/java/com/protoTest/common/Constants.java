@@ -2,7 +2,6 @@ package com.protoTest.common;
 
 
 import com.google.protobuf.ByteString;
-import com.google.protobuf.Timestamp;
 
 public class Constants {
 
